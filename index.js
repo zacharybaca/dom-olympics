@@ -1,3 +1,5 @@
+/* Bronze Section */
+
 // Grab the Header Element
 let header = document.getElementById('header');
 
@@ -33,3 +35,42 @@ para.style.fontSize = '14px';
 
 // Append Paragraph Element To Header
 header.appendChild(para);
+
+
+/* Silver Section */
+
+// Grab the Messages Container
+let messages = document.getElementsByClassName('messages');
+
+// Grab All the Messages From the Left
+let leftMessages = document.getElementsByClassName('left');
+
+// Grab All the Messages From the Right
+let rightMessages = document.getElementsByClassName('right');
+
+// Change Text of First Message
+leftMessages[0].textContent = 'How Are You?';
+
+// Change Text of Second Message
+rightMessages[0].textContent = 'I am Good. What About You?';
+
+// Change Text of Third Message
+leftMessages[1].textContent = 'I Hate My Current Job';
+
+// Change Text of Fourth Message
+rightMessages[1].textContent = 'Go to V-School Then!';
+
+// Grab The Clear Button
+let clearMessages = document.getElementById('clear-button');
+
+// Add Event Listener to Clear Button to Delete All Messages
+clearMessages.addEventListener('click', (e) => {
+    // While Parent Element Still Has Child Elements
+    // Iterate Over Messages and Delete the First Child
+    // Until Nothing is Left
+    while (messages[0].firstElementChild) {
+        // Assign First Element Child to Variable
+        let firstElChild = messages[0].firstElementChild;
+        messages[0].removeChild(firstElChild);
+    }
+});
