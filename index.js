@@ -74,3 +74,48 @@ clearMessages.addEventListener('click', (e) => {
         messages[0].removeChild(firstElChild);
     }
 });
+
+
+/* Gold Section */
+
+// Grab Drop-down Box of Themes
+let themeChoices = document.getElementById('theme-drop-down');
+console.log('Themes: ', themeChoices.value);
+
+// Add Event Listener to Select Element to
+// Listen for Changes on That Element
+themeChoices.addEventListener('change', (e) => {
+    // Assign a Variable to the Children Elements of Messages
+    let allMessages = messages[0].children;
+
+    // Check To See If There Are Existing Messages
+    if (allMessages.length) {
+      // Iterate Over All Messages Variable
+      for (let i = 0; i <= allMessages.length; i++) {
+        // Check If Theme's Value is Set to 'theme-one'
+        if (themeChoices.value === "theme-one") {
+          // Check to See If Message Has a Class of "left"
+          if (allMessages[i].classList.contains("left")) {
+            // Apply a Blue Background Color to the Div
+            allMessages[i].style.backgroundColor = "blue";
+            // Change The Color of the Text to White for Readability
+            allMessages[i].style.color = 'white';
+          } else {
+            // Apply a Brown Background Color to the Div
+            allMessages[i].style.backgroundColor = "brown";
+          }
+        } else if (themeChoices.value === "theme-two") {
+          // Repeat Same Logic as Above
+          if (allMessages[i].classList.contains("left")) {
+            allMessages[i].style.backgroundColor = "red";
+          } else {
+            allMessages[i].style.backgroundColor = "black";
+            // Change The Color of the Text to White for Readability
+            allMessages[i].style.color = 'white';
+          }
+        }
+      }
+    } else {
+        alert('There Are Currently No Messages to Apply Styling To!');
+    }
+});
